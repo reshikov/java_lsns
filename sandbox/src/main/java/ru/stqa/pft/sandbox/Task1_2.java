@@ -18,6 +18,7 @@ public class Task1_2 {
         System.out.println("Расстояние между точками = " + p.distance());
 
     }
-
-
+    public double distance(Point p) {
+        return Math.sqrt((p.x2 - p.x1) * (p.x2 - p.x1) + (p.y2 - p.y1) * (p.y2 - p.y1));
+    }
 }
