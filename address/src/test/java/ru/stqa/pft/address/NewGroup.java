@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbooks;
+package ru.stqa.pft.address;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -14,17 +14,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
-public class GroupCreation {
+public class NewGroup {
     FirefoxDriver wd;
-
+    
     @BeforeMethod
     public void setUp() throws Exception {
+        System.setProperty("webdriver.gecko.driver", "/Applications/Firefox.app/Contents/MacOS/geckodriver");
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
     
     @Test
-    public void groupcreation() {
+    public void NewGroup() {
         wd.get("http://localhost/addressbook/");
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
@@ -37,13 +38,13 @@ public class GroupCreation {
         wd.findElement(By.name("new")).click();
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
-        wd.findElement(By.name("group_name")).sendKeys("test4");
+        wd.findElement(By.name("group_name")).sendKeys("test2");
         wd.findElement(By.name("group_header")).click();
         wd.findElement(By.name("group_header")).clear();
-        wd.findElement(By.name("group_header")).sendKeys("test5");
+        wd.findElement(By.name("group_header")).sendKeys("test3");
         wd.findElement(By.name("group_footer")).click();
         wd.findElement(By.name("group_footer")).clear();
-        wd.findElement(By.name("group_footer")).sendKeys("test6");
+        wd.findElement(By.name("group_footer")).sendKeys("test4");
         wd.findElement(By.name("submit")).click();
         wd.findElement(By.linkText("group page")).click();
     }
