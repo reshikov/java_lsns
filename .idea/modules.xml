@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/address.iml" filepath="$PROJECT_DIR$/.idea/modules/address.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/address_main.iml" filepath="$PROJECT_DIR$/.idea/modules/address_main.iml" group="address" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/address_test.iml" filepath="$PROJECT_DIR$/.idea/modules/address_test.iml" group="address" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/newcustomer.iml" filepath="$PROJECT_DIR$/.idea/modules/newcustomer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/newcustomer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/newcustomer_main.iml" group="newcustomer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/newcustomer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/newcustomer_test.iml" group="newcustomer" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_main.iml" group="sandbox" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_test.iml" group="sandbox" />
