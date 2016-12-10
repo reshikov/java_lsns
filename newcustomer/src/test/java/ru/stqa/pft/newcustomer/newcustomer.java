@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
+import ru.stqa.pft.newcustomer.PhonesData;
 
 public class newcustomer {
     FirefoxDriver wd;
@@ -26,7 +27,7 @@ public class newcustomer {
         GoToNewCustomerPage();
         AddFirstInfo("qaTest", "Specialist", "Middle", "Qa");
         AddSecondaryInfo("Nikolaev", "Camo", "Title");
-        AddPhonesInfo("123456789", "12345678", "1234567");
+        AddPhonesInfo(new PhonesData("123456789", "12345678", "1234567"));
         AddLastInfo();
         submitNewCustomer();
     }
@@ -39,36 +40,21 @@ public class newcustomer {
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
         wd.findElement(By.name("email")).sendKeys("qates@qates.com");
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[5]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[5]")).click();
-        }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[6]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[6]")).click();
-        }
-        wd.findElement(By.name("byear")).click();
-        wd.findElement(By.name("byear")).clear();
-        wd.findElement(By.name("byear")).sendKeys("1999");
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[3]//option[10]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[3]//option[10]")).click();
-        }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[4]//option[3]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[4]//option[3]")).click();
-        }
         wd.findElement(By.name("ayear")).click();
         wd.findElement(By.name("ayear")).clear();
         wd.findElement(By.name("ayear")).sendKeys("1002");
     }
 
-    private void AddPhonesInfo(String workphone, String mobile, String homephone) {
+    private void AddPhonesInfo(PhonesData phonesData) {
         wd.findElement(By.name("home")).click();
         wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(homephone);
+        wd.findElement(By.name("home")).sendKeys(phonesData.getHomephone());
         wd.findElement(By.name("mobile")).click();
         wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys(mobile);
+        wd.findElement(By.name("mobile")).sendKeys(phonesData.getMobile());
         wd.findElement(By.name("work")).click();
         wd.findElement(By.name("work")).clear();
-        wd.findElement(By.name("work")).sendKeys(workphone);
+        wd.findElement(By.name("work")).sendKeys(phonesData.getWorkphone());
     }
 
     private void AddSecondaryInfo(String address, String company, String title) {
