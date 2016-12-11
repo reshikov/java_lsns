@@ -8,9 +8,9 @@ public class deletecustomer extends TestBase {
     
     @Test
     public void deletecustomer() {
-        app.selectAllContacts();
-        app.deleteContacts();
-        app.returnToHomePage();
+        app.getAccountHelper().selectAllContacts();
+        app.getAccountHelper().deleteContacts();
+        app.getAccountHelper().returnToHomePage();
     }
 
 }

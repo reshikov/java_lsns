@@ -7,12 +7,12 @@ public class newcustomer extends TestBase {
 
     @Test
     public void testNewCustomer() {
-        app.GoToNewCustomerPage();
-        app.AddFirstInfo("qaTest", "Specialist", "Middle", "Qa");
-        app.AddSecondaryInfo("Nikolaev", "Camo", "Title");
-        app.AddPhonesInfo(new PhonesData("123456789", "12345678", "1234567"));
-        app.AddLastInfo();
-        app.submitNewCustomer();
+        app.getAccountHelper().GoToNewCustomerPage();
+        app.getAccountHelper().AddFirstInfo("qaTest", "Specialist", "Middle", "Qa");
+        app.getAccountHelper().AddSecondaryInfo("Nikolaev", "Camo", "Title");
+        app.getAccountHelper().AddPhonesInfo(new PhonesData("123456789", "12345678", "1234567"));
+        app.getAccountHelper().AddLastInfo();
+        app.getAccountHelper().submitNewCustomer();
     }
 
 }
