@@ -7,78 +7,53 @@ import ru.stqa.pft.newcustomer.tests.PhonesData;
 /**
  * Created by reshikov on 11.12.16.
  */
-public class AccountHelper {
-   private FirefoxDriver wd;
+public class AccountHelper extends HelperBase{
 
     public AccountHelper(FirefoxDriver wd) {
-        this.wd=wd;
+        super(wd);
     }
 
     public void submitNewCustomer() {
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
     public void AddLastInfo() {
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys("qates@qates.com");
-        wd.findElement(By.name("ayear")).click();
-        wd.findElement(By.name("ayear")).clear();
-        wd.findElement(By.name("ayear")).sendKeys("1002");
+        type(By.name("email"), "qates@qates.com");
+        type(By.name("ayear"), "1002");
     }
 
     public void AddPhonesInfo(PhonesData phonesData) {
-        wd.findElement(By.name("home")).click();
-        wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(phonesData.getHomephone());
-        wd.findElement(By.name("mobile")).click();
-        wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys(phonesData.getMobile());
-        wd.findElement(By.name("work")).click();
-        wd.findElement(By.name("work")).clear();
-        wd.findElement(By.name("work")).sendKeys(phonesData.getWorkphone());
+        type(By.name("home"), phonesData.getHomephone());
+        type(By.name("mobile"), phonesData.getMobile());
+        type(By.name("work"), phonesData.getWorkphone());
     }
 
     public void AddSecondaryInfo(String address, String company, String title) {
-        wd.findElement(By.name("title")).click();
-        wd.findElement(By.name("title")).clear();
-        wd.findElement(By.name("title")).sendKeys(title);
-        wd.findElement(By.name("company")).click();
-        wd.findElement(By.name("company")).clear();
-        wd.findElement(By.name("company")).sendKeys(company);
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(address);
+        type(By.name("title"), title);
+        type(By.name("company"), company);
+        type(By.name("address"), address);
     }
 
     public void AddFirstInfo(String nickname, String lastname, String middlename, String firstname) {
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(firstname);
-        wd.findElement(By.name("middlename")).click();
-        wd.findElement(By.name("middlename")).clear();
-        wd.findElement(By.name("middlename")).sendKeys(middlename);
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(lastname);
-        wd.findElement(By.name("nickname")).click();
-        wd.findElement(By.name("nickname")).clear();
-        wd.findElement(By.name("nickname")).sendKeys(nickname);
+        type(By.name("firstname"), firstname);
+        type(By.name("middlename"), middlename);
+        type(By.name("lastname"), lastname);
+        type(By.name("nickname"), nickname);
     }
 
     public void GoToNewCustomerPage() {
-        wd.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 
     public void returnToHomePage() {
-        wd.findElement(By.linkText("home")).click();
+        click(By.linkText("home"));
     }
 
     public void deleteContacts() {
-        wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
     public void selectAllContacts() {
-        wd.findElement(By.id("MassCB")).click();
+        click(By.id("MassCB"));
     }
 }
