@@ -1,17 +1,16 @@
-package ru.stqa.pft.newcustomer;
+package ru.stqa.pft.newcustomer.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import ru.stqa.pft.newcustomer.tests.PhonesData;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by reshikov on 11.12.16.
  */
-public class TestBase {
+public class ApplicationManager {
     FirefoxDriver wd;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
@@ -23,23 +22,19 @@ public class TestBase {
         }
     }
 
-    @BeforeMethod
-    public void setUp() throws Exception {
+    public void init() {
         System.setProperty("webdriver.gecko.driver", "/Applications/Firefox.app/Contents/MacOS/geckodriver");
         wd = new FirefoxDriver();
-        wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/index.php");
+        wd.get  ("http://localhost/addressbook/index.php");
         login("admin", "secret");
-
-
     }
 
-    protected void submitNewCustomer() {
+    public void submitNewCustomer() {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    protected void AddLastInfo() {
+    public void AddLastInfo() {
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
         wd.findElement(By.name("email")).sendKeys("qates@qates.com");
@@ -48,7 +43,7 @@ public class TestBase {
         wd.findElement(By.name("ayear")).sendKeys("1002");
     }
 
-    protected void AddPhonesInfo(PhonesData phonesData) {
+    public void AddPhonesInfo(PhonesData phonesData) {
         wd.findElement(By.name("home")).click();
         wd.findElement(By.name("home")).clear();
         wd.findElement(By.name("home")).sendKeys(phonesData.getHomephone());
@@ -60,7 +55,7 @@ public class TestBase {
         wd.findElement(By.name("work")).sendKeys(phonesData.getWorkphone());
     }
 
-    protected void AddSecondaryInfo(String address, String company, String title) {
+    public void AddSecondaryInfo(String address, String company, String title) {
         wd.findElement(By.name("title")).click();
         wd.findElement(By.name("title")).clear();
         wd.findElement(By.name("title")).sendKeys(title);
@@ -72,7 +67,7 @@ public class TestBase {
         wd.findElement(By.name("address")).sendKeys(address);
     }
 
-    protected void AddFirstInfo(String nickname, String lastname, String middlename, String firstname) {
+    public void AddFirstInfo(String nickname, String lastname, String middlename, String firstname) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(firstname);
@@ -87,11 +82,11 @@ public class TestBase {
         wd.findElement(By.name("nickname")).sendKeys(nickname);
     }
 
-    protected void GoToNewCustomerPage() {
+    public void GoToNewCustomerPage() {
         wd.findElement(By.linkText("add new")).click();
     }
 
-    protected void login(String user, String password) {
+    public void login(String user, String password) {
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
         wd.findElement(By.name("user")).sendKeys(user);
@@ -101,20 +96,19 @@ public class TestBase {
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
     }
 
-    @AfterMethod
-    public void tearDown() {
+    public void stop() {
         wd.quit();
     }
 
-    protected void returnToHomePage() {
+    public void returnToHomePage() {
         wd.findElement(By.linkText("home")).click();
     }
 
-    protected void deleteContacts() {
+    public void deleteContacts() {
         wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
     }
 
-    protected void selectAllContacts() {
+    public void selectAllContacts() {
         wd.findElement(By.id("MassCB")).click();
     }
 }

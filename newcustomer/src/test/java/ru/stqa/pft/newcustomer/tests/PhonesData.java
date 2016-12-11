@@ -1,4 +1,4 @@
-package ru.stqa.pft.newcustomer;
+package ru.stqa.pft.newcustomer.tests;
 
 public class PhonesData {
     private final String workphone;
